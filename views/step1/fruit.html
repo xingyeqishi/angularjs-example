@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="fruitApp">
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/static/css/ng-animation.css" rel="stylesheet"/>
+    <link href="/static/css/angular-growl.min.css" rel="stylesheet"/>
+    <link href="/static/css/app.css" rel="stylesheet"/>
+    <script src="/static/js/angular.js"></script>
+    <script src="/static/js/angular-animate.js"></script>
+    <script src="/static/js/angular-growl.js"></script>
+</head>
+<body>
+    <div growl></div>
+    <div class="container" ng-controller="mainCtrl">
+        <div class="page-header">
+            <h2>水果</h2>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form role="form" name="addForm">
+                    <div class="form-group">
+                        <label for="fruitName">名字:</label>
+                        <input type="text" name="fruitName" autocomplete="off" class="form-control" id="fruitName" placeholder="请输入水果名">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">价格:</label>
+                        <input type="number" name="price" autocomplete="off" class="form-control" id="price" placeholder="请输入价格">
+                    </div>
+                    <button type="submit" class="btn btn-primary">添加</button>
+                </form>
+            </div>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="item in fruitData">
+                <div>
+                    {{item.fruitName}}     
+                    (<b highlight="40">{{item.price}}</b>)
+                    <a href="javascript:void(0)" class="pull-right">删除</a>
+                </div>
+                <div>
+                    {{item.createTime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="/static/js/fruitApp.js"></script>
+    <script src="/static/js/highlight.directive.js"></script>
+</body>
+</html>

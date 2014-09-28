@@ -1,0 +1,40 @@
+<div class="page-list anim-slide-right">
+<div class="page-header">
+    <div class="pull-right">
+        <a ui-sref="create" class="btn btn-primary">添加水果</a>
+    </div>
+    <h2>水果列表</h2>
+</div>
+<!--
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="item in fruitData">
+        <div>{{item.fruitName}}     ({{item.price}})<a class="pull-right">删除</a></div>
+        <div>{{item.createTime | date: 'yyyy-MM-dd HH:mm:ss'}}<a class="pull-right">编辑</a></div>
+    </li>
+</ul>
+-->
+<table class="table table-bordered table-striped table-hover" style="table-layout:fixed">
+    <thead>
+        <tr>
+            <th>名称</th>
+            <th>价格</th>
+            <th>创建时间</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-if="fruitData.length == 0">
+            <td colspan="4">无数据</td>
+        </tr>
+        <tr ng-repeat="item in fruitData" ng-class="slide-left" >
+            <td>{{item.fruitName}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.createTime | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td>
+                <a href="javascript:void(0);" ng-click="delete(item)">删除</a>
+                <a ui-sref="edit({name: item.fruitName, price: item.price})">编辑</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
